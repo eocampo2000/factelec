@@ -1,0 +1,48 @@
+
+CREATE TABLE cdr
+(
+	bill_id              CHAR(18) NOT NULL,
+	co_id                CHAR(18) NULL,
+	bill_no              CHAR(18) NULL,
+	bill_type            CHAR(18) NULL,
+	bill_file            CHAR(18) NULL,
+	sref_id              CHAR(18) NULL,
+	sret_code            CHAR(18) NULL,
+	etl_jobid            CHAR(18) NULL,
+	etl_date             CHAR(18) NULL,
+	sret_msg             CHAR(18) NULL
+);
+
+ALTER TABLE cdr
+ADD PRIMARY KEY (bill_id);
+
+CREATE TABLE company
+(
+	co_id                INTEGER NOT NULL,
+	co_ruc               INTEGER NULL,
+	co_serie             CHAR(18) NULL,
+	co_name              VARCHAR(100) NULL,
+	co_address           VARCHAR(100) NULL,
+	co_cont_id           INTEGER NULL,
+	etl_job_id           INTEGER NULL,
+	etl_date             DATE NULL
+);
+
+ALTER TABLE company
+ADD PRIMARY KEY (co_id);
+
+CREATE TABLE ebill
+(
+	bill_id              INTEGER NOT NULL,
+	co_id                INTEGER NULL,
+	bill_no              INTEGER NULL,
+	bill_type            CHAR(10) NULL,
+	bill_file            CHAR(25) NULL,
+	ret_code             INTEGER NULL,
+	ret_msg              VARCHAR(255) NULL,
+	etl_jobid            INTEGER NULL,
+	etl_date             CHAR(25) NULL
+);
+
+ALTER TABLE ebill
+ADD PRIMARY KEY (bill_id);
